@@ -38,13 +38,12 @@ class SplashScreen : AppCompatActivity() {
         val userListFromJson: List<User> = mapper.readValue(str)
         for (x in userListFromJson) {
             allUsers[x.id] = x
-            println(allUsers[x.id])
         }
     }
 
     private fun getAssetJsonData(context: Context): String? {
         val json: String? = try {
-            val `is` = context.assets.open("users.json")
+            val `is` = context.assets.open("DATA.json")
             val size = `is`.available()
             val buffer = ByteArray(size)
             `is`.read(buffer)

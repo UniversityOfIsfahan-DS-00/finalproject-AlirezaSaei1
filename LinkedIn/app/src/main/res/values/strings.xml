@@ -4,4 +4,6 @@
     <string name="show_result">Load Users</string>
     <string name="user_id">User ID</string>
     <string name="suggestions">Suggestions</string>
+    <string name="back">Back</string>
+    <string name="your_suggestions">Your Suggestions:</string>
 </resources>

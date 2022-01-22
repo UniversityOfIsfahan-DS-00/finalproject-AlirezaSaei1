@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LinkedIn</string>
+    <string name="enter_user_id">Enter User ID:</string>
+    <string name="show_result">Load Users</string>
+    <string name="user_id">User ID</string>
+    <string name="suggestions">Suggestions</string>
+</resources>

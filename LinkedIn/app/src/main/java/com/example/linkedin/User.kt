@@ -10,23 +10,23 @@ data class User(
     val specialties: List<String>,
     val connectionId: List<String>
 ) {
-
+    var degree: Int = 5
     fun giveScore(user2: User, s: Boolean, f: Boolean, w: Boolean, u: Boolean): Double {
         var score = 0.0
         var sMultiplier = 1.0
         var fMultiplier = 1.0
         var wMultiplier = 1.0
         var uMultiplier = 1.0
-        if(s){
+        if (s) {
             sMultiplier = 2.0
         }
-        if(f){
+        if (f) {
             fMultiplier = 2.0
         }
-        if(w){
+        if (w) {
             wMultiplier = 1.5
         }
-        if(u){
+        if (u) {
             uMultiplier = 2.0
         }
 
@@ -39,13 +39,12 @@ data class User(
         if (this.workplace == user2.workplace) {
             score += (100 * wMultiplier)
         }
-        for (i in this.specialties) {
-            for (j in user2.specialties) {
-                if (i == j) {
-                    score += (150 * sMultiplier)
-                }
-            }
-        }
+        val temp: List<String> = this.specialties
+        temp.intersect(user2.specialties.toSet())
+        score += (150 * temp.size * sMultiplier)
+
+        score += ((5 - user2.degree) * 50)
+
         return score
     }
 }

@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import java.util.*
+import kotlin.collections.ArrayList
 
 class SecondActivity : AppCompatActivity() {
     private val userList = SplashScreen.allUsers
@@ -67,6 +69,9 @@ class SecondActivity : AppCompatActivity() {
             for (x in listAccountCloned) {
                 userList[x]?.let { temp.addAll(it.connectionId) }
             }
+            for(x1 in temp.toSet()){
+                userList[x1]!!.degree = i
+            }
             sList.union(temp)
         }
         return sList
@@ -78,8 +83,8 @@ class SecondActivity : AppCompatActivity() {
         for (x in all) {
             if (inputUser != null) {
                 userList[x]?.let { score = inputUser.giveScore(it, s, f, w, u) }
-                if (score >= 150) {
-                    userList[x]?.let { suggestions.add(it.id + "       " + it.name + "       " + it.field) }
+                if (score >= 450) {
+                    userList[x]?.let { suggestions.add(it.id + "  |  " + it.name + "  |  " + it.field + "  |  " + it.workplace + "  |  " + it.universityLocation) }
                 }
             }
         }

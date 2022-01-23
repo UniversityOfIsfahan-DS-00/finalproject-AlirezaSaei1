@@ -43,7 +43,7 @@ class SplashScreen : AppCompatActivity() {
 
     private fun getAssetJsonData(context: Context): String? {
         val json: String? = try {
-            val `is` = context.assets.open("DATA.json")
+            val `is` = context.assets.open("users2.json")
             val size = `is`.available()
             val buffer = ByteArray(size)
             `is`.read(buffer)

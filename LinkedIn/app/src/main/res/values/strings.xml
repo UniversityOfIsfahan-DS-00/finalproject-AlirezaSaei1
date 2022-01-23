@@ -3,7 +3,17 @@
     <string name="enter_user_id">Enter User ID:</string>
     <string name="show_result">Load Users</string>
     <string name="user_id">User ID</string>
-    <string name="suggestions">Suggestions</string>
+    <string name="suggestions">Show Suggestions</string>
     <string name="back">Back</string>
     <string name="your_suggestions">Your Suggestions:</string>
+    <string name="priority">For better Results, Choose Your Priority:</string>
+    <string name="university">University</string>
+    <string name="workplace">Workplace</string>
+    <string name="field">Field</string>
+    <string name="specialties">Specialties</string>
+    <string name="priority_set">(Priority Set : None)</string>
+    <string name="prt_spec">(Priority Set : Specialties)</string>
+    <string name="prt_field">(Priority Set : Field)</string>
+    <string name="prt_workplace">(Priority Set : Workplace)</string>
+    <string name="prt_uni">(Priority Set : University)</string>
 </resources>

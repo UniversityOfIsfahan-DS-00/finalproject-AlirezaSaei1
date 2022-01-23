@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#9FCBE8"
+    android:focusableInTouchMode="true"
     tools:context=".MainActivity">
 
     <TextView
@@ -42,14 +43,61 @@
 
     <Button
         android:id="@+id/suggestion"
-        android:layout_width="150dp"
-        android:layout_height="112dp"
+        android:layout_width="277dp"
+        android:layout_height="98dp"
         android:text="@string/suggestions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.537" />
+        app:layout_constraintVertical_bias="0.87" />
+
+    <RadioGroup
+        android:id="@+id/radio_Group"
+        android:layout_width="249dp"
+        android:layout_height="208dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="216dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/specs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/specialties" />
+
+        <RadioButton
+            android:id="@+id/uni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/university" />
+
+        <RadioButton
+            android:id="@+id/workplace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/workplace" />
+
+        <RadioButton
+            android:id="@+id/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/field" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="248dp"
+        android:layout_marginEnd="124dp"
+        android:text="@string/priority"
+        app:layout_constraintBottom_toTopOf="@+id/radio_Group"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.225" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

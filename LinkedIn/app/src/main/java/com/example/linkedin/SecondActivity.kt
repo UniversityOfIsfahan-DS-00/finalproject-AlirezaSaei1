@@ -5,22 +5,39 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class SecondActivity : AppCompatActivity() {
     private val userList = SplashScreen.allUsers
     private val str = MainActivity.str
     private val inputUser: User? = userList[str]
+    private val s = MainActivity.s
+    private val f = MainActivity.f
+    private val w = MainActivity.w
+    private val u = MainActivity.u
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.suggestions)
-
+        val text:TextView = findViewById(R.id.prt)
+        if(s){
+            text.text = getString(R.string.prt_spec)
+        }
+        if(f){
+            text.text = getString(R.string.prt_field)
+        }
+        if(w){
+            text.text = getString(R.string.prt_workplace)
+        }
+        if(u){
+            text.text = getString(R.string.prt_uni)
+        }
         val closeConnections: List<String> = traverse()
 
         val list: ArrayList<String> = analyze(closeConnections)
         if(list.size==0){
-            list.add("No Suggestions, Your Connection is up-to-date")
+            list.add("No New Suggestions!")
         }
         val arrayAdapter: ArrayAdapter<*>
         val mListView = findViewById<ListView>(R.id.userList)
@@ -33,6 +50,10 @@ class SecondActivity : AppCompatActivity() {
 
         val btn = findViewById<Button>(R.id.back)
         btn.setOnClickListener {
+            MainActivity.s = false
+            MainActivity.f = false
+            MainActivity.w = false
+            MainActivity.u = false
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
@@ -53,11 +74,11 @@ class SecondActivity : AppCompatActivity() {
 
     private fun analyze(all: List<String>): ArrayList<String> {
         val suggestions: ArrayList<String> = ArrayList()
-        var score = 0
+        var score = 0.0
         for (x in all) {
             if (inputUser != null) {
-                userList[x]?.let { score = inputUser.giveScore(it) }
-                if (score >= 0) {
+                userList[x]?.let { score = inputUser.giveScore(it, s, f, w, u) }
+                if (score >= 150) {
                     userList[x]?.let { suggestions.add(it.id + "       " + it.name + "       " + it.field) }
                 }
             }
